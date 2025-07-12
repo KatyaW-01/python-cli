@@ -9,7 +9,6 @@ class User:
     self.name = name
     self.email = email
     self.projects = [] #each user has a list of projects
-    self.tasks = []
     
   def add_project(self,project_id):
     for project in self.projects: #loop through project array in this class

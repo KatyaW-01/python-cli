@@ -9,15 +9,21 @@ class Project:
     self.title = title
     self.description = description
     self.due_date = due_date
+    self.tasks = []
 
-  def add_task(self):
-    pass
-    #add tasks to a project
+  def add_task(self,task_id):
+    for task in self.tasks:
+      if task.id == task_id:
+        print("Task has already been added")
+        return None
+    for task in Task.all_tasks:
+      if task.id == task_id:
+        self.tasks.append(task)
+        return
+    print("Task not found")
 
   def project_tasks(self): #return all tasks associated with the project
-    tasks = []
-    for task in Task.all_tasks:
-      pass
+    return self.tasks
 
   @classmethod
   def create(cls,title,description,due_date):
