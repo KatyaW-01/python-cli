@@ -9,13 +9,9 @@ class Project:
     self.due_date = due_date
     Project.all_projects.append(self)
 
-  def add_project(self):
+  def add_task(self):
     pass
-    #add project to a specific user
-
-  def display_projects(self):
-    pass
-    #display projects associated with a specific user
+    #add tasks to a project
 
   def project_tasks(self): #return all tasks associated with the project
     tasks = []
