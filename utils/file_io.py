@@ -15,3 +15,12 @@ def save_projects():
 def save_tasks():
   with open("data/tasks.json", "w") as f:
     json.dump([Task.to_dict() for task in Task.all_tasks], f, indent=2)
+
+def load_users():
+  if not os.path.exists("data/users.json"):
+    return
+  with open("data/users.json", "r") as f:
+    data = json.load(f)
+    for dict in data:
+      user = User.from_dict(dict)
+      User.all_users.append(user)

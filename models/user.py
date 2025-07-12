@@ -25,6 +25,7 @@ class User:
   def display_projects(self):
     return self.projects 
   
+  #turn object data into dictionary for writing to json file
   def to_dict(self):
     return {
       "id": self.id,
@@ -32,6 +33,13 @@ class User:
       "email": self.email,
       "projects": [project.id for project in self.projects]
     }
+  
+  #for loading data from json file, creates the objects again 
+  @classmethod
+  def from_dict(cls,data):
+    user = cls(data["id"], data["name"], data["email"]) 
+    user.projects = []
+    return user
 
   @classmethod
   def create(cls,name,email):
