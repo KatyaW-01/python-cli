@@ -26,6 +26,7 @@ class Project:
   def project_tasks(self):
     return self.tasks
   
+  #turn object data into dictionary for writing to json file
   def to_dict(self):
     return {
       "id": self.id,
@@ -33,6 +34,13 @@ class Project:
       "description": self.description,
       "due_date": self.due_date
     }
+  
+  #for loading data from json file, creates the objects again
+  @classmethod
+  def from_dict(cls,data):
+    project = cls(data["id"], data["title"], data["description"], data["due_data"])
+    project.tasks = []
+    return project
 
   @classmethod
   def create(cls,title,description,due_date):

@@ -24,3 +24,12 @@ def load_users():
     for dict in data:
       user = User.from_dict(dict)
       User.all_users.append(user)
+
+def load_projects():
+  if not os.path.exists("data/projects.json"):
+    return
+  with open("data/projects.json", "r") as f:
+    data = json.load(f)
+    for dict in data:
+      project = Project.from_dict(dict)
+      Project.all_projects.append(project)
