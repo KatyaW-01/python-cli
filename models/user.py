@@ -23,8 +23,7 @@ class User:
     print("Project not found")
         
   def display_projects(self):
-    pass 
-    #return all projects a user has
+    return self.projects 
 
   def display_tasks(self):
     pass
