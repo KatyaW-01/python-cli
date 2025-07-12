@@ -1,4 +1,6 @@
 class Task:
+  all_tasks = []
+  
   def __init__(self,title,status,assigned_to):
     self.title = title
     self.status = status
