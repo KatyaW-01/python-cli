@@ -22,7 +22,7 @@ class Project:
         return
     print("Task not found")
 
-  def project_tasks(self): #return all tasks associated with the project
+  def project_tasks(self):
     return self.tasks
 
   @classmethod
