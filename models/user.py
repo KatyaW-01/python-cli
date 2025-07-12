@@ -1,4 +1,4 @@
-from project import Project
+from models.project import Project
 from utils.file_io import save_users
 
 class User:

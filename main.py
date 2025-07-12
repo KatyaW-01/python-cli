@@ -19,6 +19,8 @@ def main():
   add_project_parser.add_argument('due_date', help="project due date")
   add_project_parser.set_defaults(func=handle_add_project)
 
+  #subcommand add task
+
   #call functions
   args = parser.parse_args()
   args.func(args)
