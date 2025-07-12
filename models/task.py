@@ -1,11 +1,12 @@
 class Task:
   all_tasks = []
+  next_id = 1
 
-  def __init__(self,title,status,assigned_to):
+  def __init__(self,task_id,title,status,assigned_to):
+    self.id = task_id
     self.title = title
     self.status = status
     self.assigned_to = assigned_to
-    Task.all_tasks.append(self)
 
   def complete(self):
     pass
@@ -17,6 +18,8 @@ class Task:
       if task.title.lower() == title.lower():
         print("Task already exists")
         return None
-    new_task = cls(title,status,assigned_to)
+    task_id = cls.next_id
+    cls.next_id += 1
+    new_task = cls(task_id,title,status,assigned_to)
     cls.all_tasks.append(new_task)
     return new_task

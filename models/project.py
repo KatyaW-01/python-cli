@@ -2,8 +2,10 @@ from task import Task
 
 class Project:
   all_projects = []
+  next_id = 1
 
-  def __init__(self,title,description,due_date):
+  def __init__(self,project_id,title,description,due_date):
+    self.id = project_id
     self.title = title
     self.description = description
     self.due_date = due_date
@@ -23,7 +25,9 @@ class Project:
       if project.title.lower() == title.lower():
         print("Project with that title already exists")
         return None
-    new_project = cls(title,description,due_date)
+    project_id = cls.next_id
+    cls.next_id += 1
+    new_project = cls(project_id,title,description,due_date)
     cls.all_projects.append(new_project)
     return new_project
 
