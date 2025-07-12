@@ -1,3 +1,5 @@
+from project import Project
+
 class User:
   all_users = []
   next_id = 1
@@ -9,11 +11,19 @@ class User:
     self.projects = [] #each user has a list of projects
     
 
-  def add_project(self):
-    pass
-
+  def add_project(self,project_id):
+    for project in self.projects: #loop through project array in this class
+          if project.id == project_id:
+            print("Project has already been added")
+            return None
+    for project in Project.all_projects: #loop through project array from project class
+      if project.id == project_id:
+        self.projects.append(project)
+        return
+    print("Project not found")
+        
   def display_projects(self):
-    pass
+    pass 
     #return all projects a user has
 
   def display_tasks(self):
