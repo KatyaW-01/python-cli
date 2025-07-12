@@ -20,6 +20,7 @@ class Task:
         return
     print("Task not found")
 
+  #turn object data into dictionary for writing to json file
   def to_dict(self):
     return {
       "id": self.id,
@@ -27,6 +28,12 @@ class Task:
       "status": self.status,
       "assigned_to": self.assigned_to
     }
+  
+  #for loading data from json file, creates the objects again
+  @classmethod
+  def from_dict(cls,data):
+    task = cls(data["id"], data["title"], data["status"], data["assigned_to"])
+    return task
 
   @classmethod
   def create(cls,title,status,assigned_to):

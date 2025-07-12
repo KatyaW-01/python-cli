@@ -33,3 +33,12 @@ def load_projects():
     for dict in data:
       project = Project.from_dict(dict)
       Project.all_projects.append(project)
+
+def load_tasks():
+  if not os.path.exists("data/tasks.json"):
+    return
+  with open("data/tasks.json", "r") as f:
+    data = json.load(f)
+    for dict in data:
+      task = Task.from_dict(dict)
+      Task.all_tasks.append(task)
