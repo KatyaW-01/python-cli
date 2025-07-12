@@ -6,11 +6,17 @@ class Task:
     self.id = task_id
     self.title = title
     self.status = status
-    self.assigned_to = assigned_to
+    self.assigned_to = assigned_to #id or the project object
 
-  def complete(self):
-    pass
-    #mark tasks as complete
+  def complete(self,task_id):
+    for task in self.all_tasks:
+      if task.id == task_id and task.status == "completed":
+        print("Task has already been completed")
+        return None
+      elif task.id == task_id  and task.status != "completed":
+        task.status = "completed"
+        return
+    print("Task not found")
 
   @classmethod
   def create(cls,title,status,assigned_to):
