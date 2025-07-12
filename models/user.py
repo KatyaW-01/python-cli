@@ -17,3 +17,13 @@ class User:
   def display_tasks(self):
     pass
     #display tasks assigned to a specific user
+
+  @classmethod
+  def create(cls,name,email):
+    for user in cls.all_users:
+      if user.name.lower() == name.lower():
+        print("User with that name already exists")
+        return None
+    new_user = cls(name,email)
+    cls.all_users.append(new_user)
+    return new_user
