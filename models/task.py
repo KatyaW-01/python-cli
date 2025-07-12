@@ -1,3 +1,5 @@
+from utils.file_io import save_tasks
+
 class Task:
   all_tasks = []
   next_id = 1
@@ -18,6 +20,14 @@ class Task:
         return
     print("Task not found")
 
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "title": self.title,
+      "status": self.status,
+      "assigned_to": self.assigned_to
+    }
+
   @classmethod
   def create(cls,title,status,assigned_to):
     for task in cls.all_tasks:
@@ -28,4 +38,5 @@ class Task:
     cls.next_id += 1
     new_task = cls(task_id,title,status,assigned_to)
     cls.all_tasks.append(new_task)
+    save_tasks()
     return new_task

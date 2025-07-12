@@ -11,3 +11,7 @@ def save_users():
 def save_projects():
   with open("data/projects.json", "w") as f:
     json.dump([Project.to_dict() for project in Project.all_projects], f, indent=2)
+
+def save_tasks():
+  with open("data/tasks.json", "w") as f:
+    json.dump([Task.to_dict() for task in Task.all_tasks], f, indent=2)
