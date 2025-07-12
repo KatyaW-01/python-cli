@@ -1,6 +1,6 @@
 import argparse
 from models.user import User
-from utils.helpers import handle_add_user, handle_add_project
+from utils.helpers import handle_add_user, handle_add_project, handle_add_task, handle_display_users
 
 def main():
   parser = argparse.ArgumentParser(description="Project Management Tool")
@@ -20,6 +20,15 @@ def main():
   add_project_parser.set_defaults(func=handle_add_project)
 
   #subcommand add task
+  add_task_parser = subparsers.add_parser('add-task',help="add a task")
+  add_task_parser.add_argument('title',help="task title")
+  add_task_parser.add_argument('status',help="task status")
+  add_task_parser.add_argument('assigned_to',help="project the task is assigned to")
+  add_project_parser.set_defaults(func=handle_add_task)
+
+  #subcommand display users
+  list_users_parser = subparsers.add_parser('list-users',help="list all users")
+  list_users_parser.set_defaults(func=handle_display_users)
 
   #call functions
   args = parser.parse_args()

@@ -22,9 +22,10 @@ def load_users():
     return
   with open("data/users.json", "r") as f:
     data = json.load(f)
-    for dict in data:
-      user = User.from_dict(dict)
-      User.all_users.append(user)
+  User.all_users.clear()
+  for dict in data:
+    user = User.from_dict(dict)
+    User.all_users.append(user)
 
 def load_projects():
   from models.project import Project
@@ -32,9 +33,10 @@ def load_projects():
     return
   with open("data/projects.json", "r") as f:
     data = json.load(f)
-    for dict in data:
-      project = Project.from_dict(dict)
-      Project.all_projects.append(project)
+  Project.all_projects.clear()
+  for dict in data:
+    project = Project.from_dict(dict)
+    Project.all_projects.append(project)
 
 def load_tasks():
   from models.task import Task
@@ -42,6 +44,7 @@ def load_tasks():
     return
   with open("data/tasks.json", "r") as f:
     data = json.load(f)
-    for dict in data:
-      task = Task.from_dict(dict)
-      Task.all_tasks.append(task)
+  Task.all_tasks.clear()
+  for dict in data:
+    task = Task.from_dict(dict)
+    Task.all_tasks.append(task)
