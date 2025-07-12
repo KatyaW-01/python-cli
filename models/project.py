@@ -7,7 +7,6 @@ class Project:
     self.title = title
     self.description = description
     self.due_date = due_date
-    Project.all_projects.append(self)
 
   def add_task(self):
     pass
@@ -17,4 +16,14 @@ class Project:
     tasks = []
     for task in Task.all_tasks:
       pass
+
+  @classmethod
+  def create(cls,title,description,due_date):
+    for project in cls.all_projects:
+      if project.title.lower() == title.lower():
+        print("Project with that title already exists")
+        return None
+    new_project = cls(title,description,due_date)
+    cls.all_projects.append(new_project)
+    return new_project
 
