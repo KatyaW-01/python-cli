@@ -1,4 +1,5 @@
 from task import Task
+from utils.file_io import save_projects
 
 class Project:
   all_projects = []
@@ -24,6 +25,14 @@ class Project:
 
   def project_tasks(self):
     return self.tasks
+  
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "title": self.title,
+      "description": self.description,
+      "due_date": self.due_date
+    }
 
   @classmethod
   def create(cls,title,description,due_date):
@@ -35,5 +44,6 @@ class Project:
     cls.next_id += 1
     new_project = cls(project_id,title,description,due_date)
     cls.all_projects.append(new_project)
+    save_projects()
     return new_project
 

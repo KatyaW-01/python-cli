@@ -26,7 +26,7 @@ class User:
     return self.projects 
   
   def to_dict(self):
-    return{
+    return {
       "id": self.id,
       "name": self.name,
       "email": self.email,
