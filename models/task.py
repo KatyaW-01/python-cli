@@ -11,3 +11,12 @@ class Task:
     pass
     #mark tasks as complete
 
+  @classmethod
+  def create(cls,title,status,assigned_to):
+    for task in cls.all_tasks:
+      if task.title.lower() == title.lower():
+        print("Task already exists")
+        return None
+    new_task = cls(title,status,assigned_to)
+    cls.all_tasks.append(new_task)
+    return new_task
