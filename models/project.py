@@ -1,4 +1,4 @@
-from task import Task
+from models.task import Task
 from utils.file_io import save_projects
 
 class Project:
