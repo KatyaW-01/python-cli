@@ -30,6 +30,13 @@ def main():
   list_users_parser = subparsers.add_parser('list-users',help="list all users")
   list_users_parser.set_defaults(func=handle_display_users)
 
+  #subcommand add project to user
+  add_project_to_user_parser = subparsers.add_parser('assign-project',help="add a project to a user")
+  add_project_to_user_parser.add_argument('user_id', type=int, help="the id of the user you want to assign the project to")
+  add_project_to_user_parser.add_argument('project_id', type=int, help="the id of the project you want to assign to the user")
+
+  #add_project_to_user_parser.set_defaults(func=)
+
   #call functions
   args = parser.parse_args()
   args.func(args)

@@ -2,11 +2,12 @@ from models.user import User
 from models.project import Project
 from models.task import Task
 from utils.file_io import load_users
+from rich import print 
 
 def handle_add_user(args):
   try:
     User.create(args.name,args.email)
-    print("User successfully created")
+    print("[green]User successfully created[/green]")
   except ValueError as e:
     print(f"Error: {e}")
 
